@@ -3,6 +3,7 @@
 Versioned deliverables tracker for the platform template.
 
 ## Source of Truth Docs
+
 - `docs/PRODUCT_BRIEF.md`
 - `docs/ARCHITECTURE.md`
 - `docs/API_CONVENTIONS.md`

@@ -64,11 +64,13 @@ npm run format:check   # used in CI
 ### Error Format
 
 All API errors use a stable envelope:
+
 ```json
 { "error": { "code": "...", "message": "...", "details": {} } }
 ```
 
 Success responses use:
+
 ```json
 { "data": { ... } }
 ```
@@ -85,13 +87,13 @@ Success responses use:
 
 Dev requires a `.env` file (see `.env.example`):
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `PORT` | 3001 | HTTP port |
-| `HOST` | 0.0.0.0 | Bind address |
-| `LOG_LEVEL` | info | Pino log level |
-| `CORE_API_BASE_URL` | — | Backend API URL (required) |
-| `CORE_API_TOKEN` | — | Bearer token for backend API (required) |
+| Variable            | Default | Description                             |
+| ------------------- | ------- | --------------------------------------- |
+| `PORT`              | 3001    | HTTP port                               |
+| `HOST`              | 0.0.0.0 | Bind address                            |
+| `LOG_LEVEL`         | info    | Pino log level                          |
+| `CORE_API_BASE_URL` | —       | Backend API URL (required)              |
+| `CORE_API_TOKEN`    | —       | Bearer token for backend API (required) |
 
 ## Current Status
 
