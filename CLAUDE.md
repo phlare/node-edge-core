@@ -34,6 +34,9 @@ npm run lint:fix
 # Format
 npm run format
 npm run format:check   # used in CI
+
+# Pre-commit checks (format, lint, typecheck, tests)
+npm run precommit
 ```
 
 ## Architecture

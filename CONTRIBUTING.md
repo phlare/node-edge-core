@@ -19,7 +19,7 @@ If your PR addresses an existing issue:
 
 1. Fork and branch from `develop`
 2. Follow the conventions in `STYLE.md`
-3. Ensure all checks pass: `npm run format:check && npm run lint && npm run typecheck && npm test`
+3. Ensure all checks pass: `npm run precommit`
 4. Keep commits focused and atomic
 
 ## Not accepted
