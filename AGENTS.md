@@ -30,6 +30,7 @@ This is a TypeScript edge service template built with Fastify. There are no fron
 
 ## Formatting and linting
 
+- Use `npm run precommit` when you are done with all changes and fix any pending issues
 - Prettier handles formatting (run `npm run format`)
 - ESLint 9 flat config with `typescript-eslint` (run `npm run lint`)
-- Run both before committing; CI checks `format:check` and `lint`
+- CI checks `format:check` and `lint`

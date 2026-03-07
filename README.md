@@ -48,7 +48,7 @@ npm run test:watch
 
 ```bash
 # Format, lint, typecheck, and test
-npm run format:check && npm run lint && npm run typecheck && npm test
+npm run precommit
 ```
 
 ## API Endpoints
