@@ -31,18 +31,23 @@ It should not become the source of truth for business logic or persistent produc
 ## Core Components
 
 ### HTTP Server
+
 Provides API routes and health endpoints.
 
 ### Env Validation
+
 Validates required configuration on startup.
 
 ### Logging
+
 Structured logs with request ID support.
 
 ### Core API Client
+
 Reusable typed client for calling backend APIs such as tiny-inbox-api.
 
 ### Error Handling
+
 Consistent error responses and integration-safe failure handling.
 
 ---

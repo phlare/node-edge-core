@@ -45,6 +45,7 @@ The scaffold is a reasonable starting point but has these issues:
 ### Step 1: Decouple env and delete standalone logger
 
 **Tests first** — `test/config/env.test.ts`:
+
 - EnvSchema.parse succeeds with valid env object
 - Defaults PORT to 3001, HOST to "0.0.0.0", LOG_LEVEL to "info"
 - Rejects missing CORE_API_BASE_URL
@@ -53,6 +54,7 @@ The scaffold is a reasonable starting point but has these issues:
 - Rejects non-numeric PORT
 
 **Implementation**:
+
 - `src/config/env.ts`: export `EnvSchema` as named export (keep `env` singleton for production)
 - Delete `src/lib/logger.ts` entirely
 - Refactor `src/app.ts`: `buildApp(opts?: AppOptions)` accepts `{ logLevel?, disableRequestLogging? }`, creates Fastify with inline pino config, no env import
@@ -62,11 +64,13 @@ The scaffold is a reasonable starting point but has these issues:
 ### Step 2: Request-id plugin refactor
 
 **Tests first** — `test/plugins/request-id.test.ts`:
+
 - Response includes auto-generated x-request-id when request has none
 - Response echoes provided x-request-id
 - Auto-generated ID matches UUID v4 format
 
 **Implementation**:
+
 - Move request ID generation to Fastify's `genReqId` option in `buildApp()`
 - Simplify plugin to only set the response header from `request.id`
 - **Verify**: request-id tests pass
@@ -74,11 +78,13 @@ The scaffold is a reasonable starting point but has these issues:
 ### Step 3: Error handling
 
 **Tests first** — `test/lib/errors.test.ts`:
+
 - AppError construction with code, message, statusCode, details
 - Defaults: statusCode 500, details {}
 - Is instance of Error
 
 **Tests first** — `test/plugins/error-handler.test.ts`:
+
 - Unknown route → 404 with `{ error: { code: "NOT_FOUND", ... } }`
 - Generic Error throw → 500 with `{ error: { code: "INTERNAL_SERVER_ERROR", ... } }`
 - AppError throw → specified status code with correct envelope
@@ -86,6 +92,7 @@ The scaffold is a reasonable starting point but has these issues:
 - Error responses include x-request-id
 
 **Implementation**:
+
 - Create `src/lib/errors.ts`: `AppError` class (code, message, statusCode, details)
 - Create `src/plugins/error-handler.ts`: Fastify `setErrorHandler` + `setNotFoundHandler`
 - Register in `buildApp()`
@@ -94,10 +101,12 @@ The scaffold is a reasonable starting point but has these issues:
 ### Step 4: Request logging
 
 **Tests first** — `test/plugins/request-logger.test.ts`:
+
 - Successful request logs entry with request_id, method, url, status_code, duration_ms
 - Failed request also logs these fields
 
 **Implementation**:
+
 - Create `src/plugins/request-logger.ts`: `onResponse` hook logging structured summary
 - Register in `buildApp()`
 - **Verify**: request logger tests pass
@@ -105,12 +114,14 @@ The scaffold is a reasonable starting point but has these issues:
 ### Step 5: CoreApiClient refactor
 
 **Tests first** — `test/lib/core-api-client.test.ts`:
+
 - getHealth() calls correct URL with Bearer token
 - getHealth() throws on non-ok response
 - Constructor requires baseUrl and token (no env defaults)
 - Adds Content-Type and Authorization headers
 
 **Implementation**:
+
 - Remove `import { env }` from core-api-client.ts
 - Make constructor args mandatory (no defaults)
 - Add generic `private request<T>(method, path, body?)` skeleton
@@ -120,12 +131,14 @@ The scaffold is a reasonable starting point but has these issues:
 ### Step 6: Expand health and integration tests
 
 **Tests** — `test/routes/health.test.ts` (move from `test/health.test.ts`):
+
 - GET /healthz returns 200 with correct body
 - Response includes x-request-id header
 - Echoes provided x-request-id
 - GET /unknown returns 404 error envelope
 
 **Implementation**:
+
 - Move test file, mirror src structure
 - Create `test/helpers.ts` with `buildTestApp()` (calls `buildApp({ logLevel: "silent" })`)
 - Update all tests to use `buildTestApp()`
@@ -177,6 +190,7 @@ Deleted: `src/lib/logger.ts`
 ## Verification
 
 After all steps:
+
 1. `npm test` — all tests pass
 2. `npm run typecheck` — no type errors
 3. `npm run lint` — no lint errors

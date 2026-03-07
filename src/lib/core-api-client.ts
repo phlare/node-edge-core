@@ -1,9 +1,7 @@
-import { env } from "../config/env.js";
-
 export class CoreApiClient {
   constructor(
-    private readonly baseUrl: string = env.CORE_API_BASE_URL,
-    private readonly token: string = env.CORE_API_TOKEN
+    private readonly baseUrl: string,
+    private readonly token: string
   ) {}
 
   async getHealth(): Promise<unknown> {

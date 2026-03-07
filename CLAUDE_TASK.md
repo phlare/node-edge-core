@@ -49,20 +49,20 @@ It should provide the generic plumbing needed for those services while containin
 # Suggested file structure
 
 src/
-  app.ts
-  server.ts
-  config/
-    env.ts
-  lib/
-    logger.ts
-    core-api-client.ts
-  plugins/
-    request-id.ts
-  routes/
-    health.ts
+app.ts
+server.ts
+config/
+env.ts
+lib/
+logger.ts
+core-api-client.ts
+plugins/
+request-id.ts
+routes/
+health.ts
 
 test/
-  health.test.ts
+health.test.ts
 
 ---
 
@@ -116,19 +116,19 @@ Those belong in a core backend service.
 Success response:
 
 {
-  "data": {
-    "status": "ok"
-  }
+"data": {
+"status": "ok"
+}
 }
 
 Error response:
 
 {
-  "error": {
-    "code": "string_code",
-    "message": "Human-readable message",
-    "details": {}
-  }
+"error": {
+"code": "string_code",
+"message": "Human-readable message",
+"details": {}
+}
 }
 
 ---

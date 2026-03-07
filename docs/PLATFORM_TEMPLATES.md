@@ -5,9 +5,11 @@ This repository is one of the reusable templates used to accelerate new product 
 ## Template Repositories
 
 ### elixir-api-core
+
 Phoenix API starter for core backend systems.
 
 ### node-edge-core
+
 TypeScript service starter for integration-facing systems.
 
 ---

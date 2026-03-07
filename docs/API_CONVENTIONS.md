@@ -19,9 +19,9 @@ Returns service health.
 Response:
 
 {
-  "data": {
-    "status": "ok"
-  }
+"data": {
+"status": "ok"
+}
 }
 
 ---
@@ -29,11 +29,11 @@ Response:
 ## Error Shape
 
 {
-  "error": {
-    "code": "string_code",
-    "message": "Human-readable message",
-    "details": {}
-  }
+"error": {
+"code": "string_code",
+"message": "Human-readable message",
+"details": {}
+}
 }
 
 ---

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const EnvSchema = z.object({
+export const EnvSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3001),
   HOST: z.string().default("0.0.0.0"),
   LOG_LEVEL: z.string().default("info"),
@@ -9,5 +9,3 @@ const EnvSchema = z.object({
 });
 
 export type Env = z.infer<typeof EnvSchema>;
-
-export const env: Env = EnvSchema.parse(process.env);
