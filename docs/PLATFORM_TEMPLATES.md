@@ -1,41 +1,44 @@
-# Platform Templates Strategy
+# Platform Templates
 
-This repository is one of the reusable templates used to accelerate new product and service development.
+Reusable project templates that provide infrastructure plumbing with zero business logic. Product services are created from these templates and then diverge freely.
 
 ## Template Repositories
 
-### elixir-api-core
+| Template            | Purpose                   | Stack                                           |
+| ------------------- | ------------------------- | ----------------------------------------------- |
+| **elixir-api-core** | Backend API services      | Phoenix, Ecto, Postgres, JWT auth, multi-tenant |
+| **node-edge-core**  | Edge/integration services | Fastify, Zod, Pino, TypeScript                  |
+| **web-app-core**    | Frontend SPA applications | Vite, React, TypeScript, Tailwind               |
 
-Phoenix API starter for core backend systems.
+## What Belongs in a Template
 
-### node-edge-core
+- Project scaffolding and build configuration
+- Environment validation and configuration patterns
+- Auth flow and token management
+- API client with shared envelope handling
+- Testing infrastructure and helpers
+- CI/CD pipeline
+- Linting, formatting, and precommit checks
+- Documentation (CLAUDE.md, AGENTS.md, STYLE.md, etc.)
 
-TypeScript service starter for integration-facing systems.
+## What Does NOT Belong in a Template
 
----
-
-## What Belongs Here
-
-- server setup
-- typing/lint/test baseline
-- logging
-- env validation
-- health endpoint
-- core API client patterns
-
----
-
-## What Does Not Belong Here
-
-- product-specific routes
-- business workflows
-- domain-specific persistence
-- one-off hacks for a single downstream project
-
----
+- Domain-specific models, pages, or business logic
+- Product-specific API endpoints or routes
+- Feature flags or product configuration
+- Third-party integrations specific to one product
 
 ## Versioning
 
-This template should be tagged as it matures.
+Templates are versioned independently. Product repos created from templates are not kept in sync — they diverge freely with domain logic. If a product repo develops a generally useful pattern, it may be upstreamed to the template as a new version.
 
-Downstream repos should note which template version they were created from.
+## Shared Conventions
+
+All templates share:
+
+- Composition root pattern (single entry point reads environment)
+- Zod for runtime validation (JS templates) / Ecto for schema validation (Elixir)
+- Strict type checking (TypeScript strict mode / Dialyzer)
+- Standard response envelope (`{ "data": ... }` / `{ "error": ... }`)
+- Automated linting and formatting
+- GitHub Actions CI

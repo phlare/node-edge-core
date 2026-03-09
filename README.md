@@ -82,14 +82,15 @@ Copy `.env.example` to `.env`. Dev requires:
 
 ## Related Templates
 
-This is one of two reusable service templates. They share API conventions and response envelopes but are otherwise independent.
+This is one of three reusable service templates. They share API conventions and response envelopes but are otherwise independent.
 
-| Template                                                         | Purpose                   | Stack                       |
-| ---------------------------------------------------------------- | ------------------------- | --------------------------- |
-| [**elixir-api-core**](https://github.com/phlare/elixir-api-core) | Core backend APIs         | Elixir, Phoenix, PostgreSQL |
-| **node-edge-core** (this repo)                                   | Edge/integration services | TypeScript, Fastify, Zod    |
+| Template                                                          | Purpose                   | Stack                                 |
+| ----------------------------------------------------------------- | ------------------------- | ------------------------------------- |
+| [**elixir-api-core**](https://github.com/phlare/elixir-api-core) | Core backend APIs         | Elixir, Phoenix, PostgreSQL           |
+| **node-edge-core** (this repo)                                    | Edge/integration services | TypeScript, Fastify, Zod              |
+| [**web-app-core**](https://github.com/phlare/web-app-core)       | Frontend SPA              | TypeScript, React, Vite, Tailwind     |
 
-Product services are created _from_ these templates and then diverge freely with domain logic. They're designed to work together — an edge service built from node-edge-core can call a backend API built from elixir-api-core via the `CoreApiClient`.
+Product apps are created _from_ these templates and then diverge freely with domain logic. They're designed to work together — a frontend built from web-app-core calls a backend API built from elixir-api-core, while edge services built from node-edge-core handle integrations.
 
 ## Project Status
 
