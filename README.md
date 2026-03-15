@@ -84,11 +84,11 @@ Copy `.env.example` to `.env`. Dev requires:
 
 This is one of three reusable service templates. They share API conventions and response envelopes but are otherwise independent.
 
-| Template                                                          | Purpose                   | Stack                                 |
-| ----------------------------------------------------------------- | ------------------------- | ------------------------------------- |
-| [**elixir-api-core**](https://github.com/phlare/elixir-api-core) | Core backend APIs         | Elixir, Phoenix, PostgreSQL           |
-| **node-edge-core** (this repo)                                    | Edge/integration services | TypeScript, Fastify, Zod              |
-| [**web-app-core**](https://github.com/phlare/web-app-core)       | Frontend SPA              | TypeScript, React, Vite, Tailwind     |
+| Template                                                         | Purpose                   | Stack                             |
+| ---------------------------------------------------------------- | ------------------------- | --------------------------------- |
+| [**elixir-api-core**](https://github.com/phlare/elixir-api-core) | Core backend APIs         | Elixir, Phoenix, PostgreSQL       |
+| **node-edge-core** (this repo)                                   | Edge/integration services | TypeScript, Fastify, Zod          |
+| [**web-app-core**](https://github.com/phlare/web-app-core)       | Frontend SPA              | TypeScript, React, Vite, Tailwind |
 
 Product apps are created _from_ these templates and then diverge freely with domain logic. They're designed to work together — a frontend built from web-app-core calls a backend API built from elixir-api-core, while edge services built from node-edge-core handle integrations.
 
