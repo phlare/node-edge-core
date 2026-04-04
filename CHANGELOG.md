@@ -12,6 +12,17 @@ Versioned deliverables tracker for the platform template.
 
 ---
 
+## v0.1.4 — Dependency updates (2026-04-04)
+
+- [x] eslint 10.1.0 → 10.2.0
+- [x] @types/node 25.5.0 → 25.5.2
+- [x] typescript 5.9.3 → 6.0.2
+- [x] vitest 4.1.0 → 4.1.2
+- [x] typescript-eslint 8.57.1 → 8.57.2
+- [x] fastify 5.8.2 → 5.8.4
+
+---
+
 ## v0.1 — Initial Template
 
 - [x] TypeScript project scaffolded (strict mode, NodeNext, ESM)
