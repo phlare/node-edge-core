@@ -6,6 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 TypeScript edge service template for integration-facing services (Slack adapters, MCP servers, webhook receivers). This is a reusable foundation — it contains no product logic, only service plumbing. Node 24+ (pinned in `.nvmrc`).
 
+## Workflows
+
+- Commit workflow: `.claude/instructions/commit_workflow.md`
+- Dependabot PR merging: `.claude/instructions/dependabot_workflow.md`
+
 ## Commands
 
 ```bash
