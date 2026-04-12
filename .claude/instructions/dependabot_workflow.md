@@ -16,6 +16,7 @@ After all PRs for a repo are merged:
 9. Verify no stale refs remain: `git branch -r | grep dependabot`
 
 Notes:
+
 - Dependabot's lockfiles often have stale transitive deps that break `npm ci` in CI. Clean regeneration is the only reliable approach.
 - GitHub auto-deletes merged branches but there can be a short delay — if a remote ref survives the first prune, try again after a few seconds.
 - Some repos may not label dependabot PRs with "dependencies" — always list all PRs, not just labeled ones.
