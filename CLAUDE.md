@@ -8,7 +8,7 @@ TypeScript edge service template for integration-facing services (Slack adapters
 
 ## Workflows
 
-See workspace-level commit workflow: `../.claude/instructions/commit_workflow.md`
+See `.claude/instructions/commit_workflow.md` for precommit, conventional commits, and merge strategy.
 
 ## Commands
 
