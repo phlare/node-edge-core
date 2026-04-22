@@ -6,6 +6,7 @@ This is a TypeScript edge service template built with Fastify. There are no fron
 - Node 24 is pinned in `.nvmrc`; run `nvm use` from the repo root if the shell is on the wrong version
 - Commit workflow: `.claude/instructions/commit_workflow.md`
 - Dependabot PR merging: `.claude/instructions/dependabot_workflow.md`
+- CI/CD setup: `.claude/instructions/ci_cd.md`
 - Only `src/server.ts` reads environment variables — all other modules receive config via constructor/function arguments
 - Use the `buildTestApp()` helper from `test/helpers.ts` for all test setup — never instantiate Fastify directly in tests
 - All routes are JSON API endpoints. `GET /healthz` is the baseline health check
