@@ -10,6 +10,7 @@ TypeScript edge service template for integration-facing services (Slack adapters
 
 - Commit workflow: `.claude/instructions/commit_workflow.md`
 - Dependabot PR merging: `.claude/instructions/dependabot_workflow.md`
+- CI/CD setup: `.claude/instructions/ci_cd.md`
 
 ## Commands
 

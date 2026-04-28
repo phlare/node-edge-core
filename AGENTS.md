@@ -2,6 +2,11 @@ This is a TypeScript edge service template built with Fastify. There are no fron
 
 ## Project guidelines
 
+- Reusable edge-service template for Slack adapters, MCP servers, webhook receivers, and similar integration-facing services
+- Node 24 is pinned in `.nvmrc`; run `nvm use` from the repo root if the shell is on the wrong version
+- Commit workflow: `.claude/instructions/commit_workflow.md`
+- Dependabot PR merging: `.claude/instructions/dependabot_workflow.md`
+- CI/CD setup: `.claude/instructions/ci_cd.md`
 - Only `src/server.ts` reads environment variables — all other modules receive config via constructor/function arguments
 - Use the `buildTestApp()` helper from `test/helpers.ts` for all test setup — never instantiate Fastify directly in tests
 - All routes are JSON API endpoints. `GET /healthz` is the baseline health check
@@ -9,6 +14,21 @@ This is a TypeScript edge service template built with Fastify. There are no fron
 - All success responses use: `{ "data": { ... } }`
 - Use `AppError` from `src/lib/errors.ts` for throwing typed errors — never throw plain `Error` for expected failure cases
 - Outbound calls to core APIs go through `CoreApiClient` — never use `fetch` directly for backend calls
+
+## Commands
+
+- Install deps: `npm install`
+- Dev server: `npm run dev`
+- Build: `npm run build`
+- Test suite: `npm test`
+- Test watch: `npm run test:watch`
+- Typecheck: `npm run typecheck`
+- Pre-commit: `npm run precommit`
+
+## Current Status
+
+- `v0.1` complete
+- See `CHANGELOG.md` for the versioned task tracker
 
 ## TypeScript guidelines
 
