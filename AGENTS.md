@@ -3,6 +3,7 @@ This is a TypeScript edge service template built with Fastify. There are no fron
 ## Project guidelines
 
 - Reusable edge-service template for Slack adapters, MCP servers, webhook receivers, and similar integration-facing services
+- This template must remain usable as a standalone repo. Do not rely on sibling repos, workspace-level skills, or cross-repo local documentation for required setup or usage guidance
 - Node 24 is pinned in `.nvmrc`; run `nvm use` from the repo root if the shell is on the wrong version
 - Commit workflow: `.claude/instructions/commit_workflow.md`
 - Dependabot PR merging: `.claude/instructions/dependabot_workflow.md`
@@ -14,6 +15,7 @@ This is a TypeScript edge service template built with Fastify. There are no fron
 - All success responses use: `{ "data": { ... } }`
 - Use `AppError` from `src/lib/errors.ts` for throwing typed errors — never throw plain `Error` for expected failure cases
 - Outbound calls to core APIs go through `CoreApiClient` — never use `fetch` directly for backend calls
+- If referencing companion templates such as `elixir-api-core` or `web-app-core`, use GitHub links in docs rather than local filesystem assumptions
 
 ## Commands
 
